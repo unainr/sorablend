@@ -1,0 +1,3599 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sora — Cold-pressed botanical tonics</title>
+    <meta
+      name="description"
+      content="Cold-pressed botanical tonics in Peach, Yuzu, Matcha, and Grapefruit. Zero added sugar, zero concentrates, delivered chilled."
+    />
+    <meta property="og:title" content="Sora — Cold-pressed botanical tonics" />
+    <meta
+      property="og:description"
+      content="Cold-pressed botanical tonics in Peach, Yuzu, Matcha, and Grapefruit. Zero added sugar, zero concentrates, delivered chilled."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./fonts/poppins-400.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+          U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+          U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('./fonts/poppins-500.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+          U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+          U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('./fonts/poppins-600.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+          U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+          U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./fonts/poppins-700.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+          U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+          U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: 'Baloo 2';
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url('./fonts/baloo2-800.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+          U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+          U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      :root {
+        --u: 1px;
+        --fy: 0px;
+        --n: clamp(0.5px, min(100vw / 1440, 100vh / 900), 1.3px);
+        --bg-page: #faf9fb;
+        --bg-surface: #ffffff;
+        --bg-subtle: #f3f1f6;
+        --ink: #1f1929;
+        --ink-muted: #5d556b;
+        --border-hairline: rgba(31, 25, 41, 0.09);
+        --accent: #1f1929;
+        --accent-hover: #362c47;
+      }
+
+      html.is-mobile {
+        --n: 1px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      html,
+      body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      body {
+        background: var(--bg-page);
+        color: var(--ink);
+        font-family: 'Poppins', system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        touch-action: pan-y;
+      }
+
+      .tabular {
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* =========================================================
+         HERO SECTION (EXACT 100VH SLIDER)
+         ========================================================= */
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+        background: #f4b6a4;
+        color: #ffffff;
+      }
+
+      .stage {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .slide.is-active {
+        visibility: visible;
+        pointer-events: auto;
+        z-index: 2;
+      }
+
+      .slide.is-entering {
+        visibility: visible;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .frame {
+        position: absolute;
+        width: calc(1440 * var(--u));
+        height: calc(900 * var(--u));
+        left: calc(50% - 720 * var(--u));
+        top: calc(50% - 450 * var(--u) + var(--fy));
+        pointer-events: none;
+      }
+
+      .layer {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .slide.is-active .layer,
+      .slide.is-entering .layer {
+        will-change: transform;
+      }
+
+      .layer-word {
+        z-index: 1;
+      }
+
+      .layer-shadow {
+        z-index: 2;
+      }
+
+      .layer-bottle {
+        z-index: 3;
+      }
+
+      .layer-fruit {
+        z-index: 4;
+      }
+
+      .layer-corner {
+        z-index: 5;
+      }
+
+      .word {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Poppins', system-ui, sans-serif;
+        font-weight: 700;
+        line-height: 1;
+        white-space: nowrap;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .shadow {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(60, 40, 80, 0.22), transparent);
+        filter: blur(calc(4 * var(--u)));
+      }
+
+      .bottle,
+      .piece-inner {
+        background-repeat: no-repeat;
+      }
+
+      .bottle {
+        position: absolute;
+      }
+
+      .piece-outer {
+        position: absolute;
+      }
+
+      .piece-outer.is-mirrored {
+        transform: scaleX(-1);
+      }
+
+      .layer-corner .piece-outer {
+        filter: blur(calc(9 * var(--u)));
+      }
+
+      .piece-inner {
+        width: 100%;
+        height: 100%;
+        animation: bob var(--dur, 4s) ease-in-out var(--delay, 0s) infinite alternate;
+      }
+
+      @keyframes bob {
+        from {
+          transform: translateY(calc(-7 * var(--u))) rotate(calc(var(--rot, 0deg) - 3deg));
+        }
+        to {
+          transform: translateY(calc(7 * var(--u))) rotate(calc(var(--rot, 0deg) + 3deg));
+        }
+      }
+
+      .ui {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      :where(.ui a, .ui button) {
+        pointer-events: auto;
+        background: none;
+        border: none;
+        color: #ffffff;
+        font: inherit;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        cursor: pointer;
+        text-shadow: 0 1px 6px rgba(90, 70, 40, 0.18);
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :where(.ui a, .ui button):focus-visible {
+        outline: 2px solid #ffffff;
+        outline-offset: 4px;
+        border-radius: 4px;
+      }
+
+      .header {
+        position: absolute;
+        left: calc(50 * var(--n));
+        right: calc(50 * var(--n));
+        top: calc(26 * var(--n));
+        height: calc(50 * var(--n));
+        display: flex;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: 'Baloo 2', system-ui, sans-serif;
+        font-weight: 800;
+        font-size: calc(51 * var(--n));
+        letter-spacing: -0.02em;
+        line-height: 1;
+        display: inline-block;
+      }
+
+      .tabs {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: calc(88 * var(--n));
+      }
+
+      .ui .tab {
+        font-family: 'Poppins', system-ui, sans-serif;
+        font-weight: 500;
+        font-size: calc(21 * var(--n));
+        line-height: 1.2;
+        padding: calc(6 * var(--n)) 0;
+        white-space: nowrap;
+      }
+
+      .underline {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 2 * var(--n));
+        height: 2px;
+        width: 0;
+        border-radius: 2px;
+        background: #ffffff;
+        box-shadow: 0 1px 6px rgba(90, 70, 40, 0.18);
+        pointer-events: none;
+        transition:
+          transform 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+          width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+
+      .account {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: calc(22 * var(--n));
+        font-family: 'Poppins', system-ui, sans-serif;
+        font-weight: 500;
+        font-size: calc(21 * var(--n));
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+
+      .account .sep {
+        opacity: 0.9;
+        text-shadow: 0 1px 6px rgba(90, 70, 40, 0.18);
+        user-select: none;
+      }
+
+      .ui .shop-now {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: calc(36 * var(--n));
+        font-family: 'Poppins', system-ui, sans-serif;
+        font-weight: 600;
+        font-size: calc(21 * var(--n));
+        letter-spacing: 0.2em;
+        line-height: 1.476;
+        padding: calc(10 * var(--n)) calc(16 * var(--n));
+        white-space: nowrap;
+      }
+
+      .ui .arrow {
+        position: absolute;
+        bottom: calc(30 * var(--n));
+        width: calc(52 * var(--n));
+        height: calc(52 * var(--n));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ui .arrow-prev {
+        left: calc(36 * var(--n));
+      }
+
+      .ui .arrow-next {
+        right: calc(36 * var(--n));
+      }
+
+      .arrow svg {
+        width: calc(28 * var(--n));
+        height: calc(28 * var(--n));
+        display: block;
+        filter: drop-shadow(0 1px 6px rgba(90, 70, 40, 0.18));
+      }
+
+      .is-opening-pending .ui-reveal {
+        opacity: 0;
+        translate: 0 14px;
+      }
+
+      html.is-mobile .ui .header {
+        left: 20px;
+        right: 20px;
+        top: 16px;
+        height: 40px;
+      }
+
+      html.is-mobile .ui .logo {
+        font-size: 34px;
+      }
+
+      html.is-mobile .ui .account {
+        font-size: 15px;
+        gap: 10px;
+      }
+
+      html.is-mobile .ui .tabs {
+        top: 52px;
+        gap: 22px;
+      }
+
+      html.is-mobile .ui .tab {
+        font-size: 15px;
+      }
+
+      html.is-mobile .ui .shop-now {
+        font-size: 15px;
+        bottom: 22px;
+      }
+
+      html.is-mobile .ui .arrow {
+        width: 48px;
+        height: 48px;
+        bottom: 12px;
+      }
+
+      html.is-mobile .ui .arrow-prev {
+        left: 8px;
+      }
+
+      html.is-mobile .ui .arrow-next {
+        right: 8px;
+      }
+
+      html.is-mobile .ui .arrow svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* =========================================================
+         SCROLLED STICKY TOP BAR (3-Zone Top Bar Contract)
+         ========================================================= */
+      .sticky-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        z-index: 40;
+        background: rgba(250, 249, 251, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-hairline);
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 0.22s ease;
+      }
+
+      .sticky-nav.is-visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .sticky-nav-inner {
+        max-width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
+      .sticky-brand {
+        font-family: 'Baloo 2', system-ui, sans-serif;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .sticky-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .sticky-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink-muted);
+        text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: color 0.16s ease;
+      }
+
+      .sticky-links a:hover {
+        color: var(--ink);
+      }
+
+      .sticky-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 18px;
+        border-radius: 10px;
+        border: none;
+        background: var(--accent);
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background-color 0.16s ease;
+      }
+
+      .sticky-cta:hover {
+        background: var(--accent-hover);
+      }
+
+      @media (max-width: 720px) {
+        .sticky-links {
+          display: none;
+        }
+        .sticky-nav-inner {
+          padding: 0 16px;
+        }
+      }
+
+      /* =========================================================
+         BELOW-THE-FOLD SECTIONS (Storefront, Craft, Reviews/FAQ, Footer)
+         ========================================================= */
+      .section {
+        padding: 88px 24px;
+        scroll-margin-top: 56px;
+      }
+
+      #build-box,
+      #faq {
+        scroll-margin-top: 76px;
+      }
+
+      .section-surface {
+        background: var(--bg-surface);
+        border-top: 1px solid var(--border-hairline);
+        border-bottom: 1px solid var(--border-hairline);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 44px;
+      }
+
+      .section-kicker {
+        margin: 0 0 10px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-muted);
+        letter-spacing: 0.02em;
+      }
+
+      .section-title {
+        margin: 0 0 12px;
+        font-size: clamp(28px, 3.2vw, 40px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+        color: var(--ink);
+      }
+
+      .section-sub {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--ink-muted);
+      }
+
+      /* Buttons & Interactive Controls */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2;
+        cursor: pointer;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        flex-shrink: 0;
+        min-height: 44px;
+        transition:
+          background-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 0.18s ease,
+          color 0.18s ease;
+      }
+
+      .btn:focus-visible,
+      .sticky-brand:focus-visible,
+      .sticky-links a:focus-visible,
+      .sticky-cta:focus-visible,
+      .faq-btn:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .btn-primary:hover:not(:disabled) {
+        background: var(--accent-hover);
+      }
+
+      .btn-primary:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .btn-secondary {
+        background: var(--bg-surface);
+        color: var(--ink);
+        border-color: var(--border-hairline);
+      }
+
+      .btn-secondary:hover {
+        background: var(--bg-subtle);
+        border-color: rgba(31, 25, 41, 0.22);
+      }
+
+      /* 4-Flavour Product Grid */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      @media (max-width: 1024px) {
+        .product-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .product-card {
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: 18px;
+        padding: 16px;
+        transition:
+          transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 0.2s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(31, 25, 41, 0.06);
+      }
+
+      .product-card.is-selected {
+        border-color: var(--ink);
+      }
+
+      .product-visual {
+        position: relative;
+        height: 260px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-bottom: 16px;
+      }
+
+      .card-bottle-crop {
+        background-repeat: no-repeat;
+        transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .product-card:hover .card-bottle-crop {
+        transform: scale(1.03);
+      }
+
+      .product-meta {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink-muted);
+        margin-bottom: 4px;
+      }
+
+      .product-name {
+        margin: 0 0 4px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .product-blend {
+        margin: 0 0 16px;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--ink-muted);
+        flex-grow: 1;
+      }
+
+      .product-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-hairline);
+      }
+
+      .product-price {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .product-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-compact {
+        padding: 8px 14px;
+        font-size: 13px;
+        min-height: 40px;
+        border-radius: 8px;
+      }
+
+      /* Contiguous Purchase Spotlight & Custom 6-Pack Builder */
+      .purchase-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      @media (max-width: 960px) {
+        .purchase-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .panel {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: 20px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media (max-width: 600px) {
+        .panel {
+          padding: 20px;
+        }
+      }
+
+      .spotlight-layout {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 28px;
+        align-items: center;
+        flex-grow: 1;
+      }
+
+      @media (max-width: 680px) {
+        .spotlight-layout {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+      }
+
+      .spotlight-stage {
+        height: 280px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .spotlight-kicker {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-muted);
+        margin-bottom: 6px;
+      }
+
+      .spotlight-title {
+        margin: 0 0 8px;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .spotlight-desc {
+        margin: 0 0 18px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--ink-muted);
+      }
+
+      .nutrition-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        padding: 14px 0;
+        border-top: 1px solid var(--border-hairline);
+        border-bottom: 1px solid var(--border-hairline);
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 480px) {
+        .nutrition-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      .nutri-val {
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .nutri-lbl {
+        display: block;
+        font-size: 12px;
+        color: var(--ink-muted);
+      }
+
+      .pack-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .pack-btn {
+        padding: 10px 14px;
+        border-radius: 9px;
+        border: 1px solid var(--border-hairline);
+        background: var(--bg-subtle);
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        min-height: 42px;
+        white-space: nowrap;
+        transition:
+          background-color 0.16s ease,
+          border-color 0.16s ease,
+          color 0.16s ease;
+      }
+
+      .pack-btn.is-active {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: #ffffff;
+      }
+
+      .spotlight-cta-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .inline-feedback {
+        font-size: 13px;
+        font-weight: 500;
+        color: #2c6844;
+      }
+
+      /* Custom 6-Pack Builder */
+      .box-header {
+        margin-bottom: 18px;
+      }
+
+      .box-title {
+        margin: 0 0 4px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .box-sub {
+        margin: 0;
+        font-size: 13px;
+        color: var(--ink-muted);
+      }
+
+      .box-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .box-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: var(--bg-page);
+        border: 1px solid var(--border-hairline);
+      }
+
+      .box-row-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .box-thumb {
+        width: 38px;
+        height: 48px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .box-flavour-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .box-flavour-sub {
+        font-size: 12px;
+        color: var(--ink-muted);
+      }
+
+      .stepper {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .step-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid var(--border-hairline);
+        background: var(--bg-surface);
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.15s ease;
+      }
+
+      .step-btn:hover:not(:disabled) {
+        background: var(--bg-subtle);
+      }
+
+      .step-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      .step-count {
+        min-width: 20px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .box-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-hairline);
+        flex-wrap: wrap;
+      }
+
+      .text-link-btn {
+        background: none;
+        border: none;
+        padding: 6px 0;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-muted);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        cursor: pointer;
+      }
+
+      .text-link-btn:hover {
+        color: var(--ink);
+      }
+
+      /* Craft Section */
+      .craft-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: stretch;
+        margin-bottom: 44px;
+      }
+
+      @media (max-width: 900px) {
+        .craft-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      .craft-media {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #efe9f7 0%, #f6efe2 100%);
+        min-height: 360px;
+      }
+
+      .craft-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .craft-steps {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+      }
+
+      .craft-step {
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+
+      .craft-step:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .craft-step-title {
+        margin: 0 0 6px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .craft-step-copy {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--ink-muted);
+      }
+
+      .metrics-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+        padding: 28px 32px;
+        background: var(--bg-page);
+        border: 1px solid var(--border-hairline);
+        border-radius: 16px;
+      }
+
+      @media (max-width: 760px) {
+        .metrics-strip {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          padding: 20px;
+        }
+      }
+
+      .metric-num {
+        display: block;
+        font-size: clamp(24px, 2.4vw, 32px);
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--ink);
+        margin-bottom: 6px;
+      }
+
+      .metric-label {
+        display: block;
+        font-size: 13px;
+        color: var(--ink-muted);
+      }
+
+      /* Reviews & FAQ */
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+
+      @media (max-width: 900px) {
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .review-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: 16px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .review-quote {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--ink);
+      }
+
+      .review-author {
+        font-size: 13px;
+        color: var(--ink-muted);
+      }
+
+      .review-author strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .faq-wrap {
+        max-width: 820px;
+      }
+
+      .faq-list {
+        border-top: 1px solid var(--border-hairline);
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--border-hairline);
+      }
+
+      .faq-btn {
+        width: 100%;
+        padding: 20px 0;
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        text-align: left;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--ink);
+        cursor: pointer;
+      }
+
+      .faq-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+      }
+
+      .faq-btn[aria-expanded='true'] .faq-icon {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        padding: 0 0 20px;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--ink-muted);
+      }
+
+      .faq-answer[hidden] {
+        display: none;
+      }
+
+      /* Footer */
+      .site-footer {
+        background: #1f1929;
+        color: #f6f4fa;
+        padding: 64px 24px 36px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .footer-brand {
+        font-family: 'Baloo 2', system-ui, sans-serif;
+        font-weight: 800;
+        font-size: 34px;
+        line-height: 1;
+        color: #ffffff;
+        display: inline-block;
+        margin-bottom: 12px;
+      }
+
+      .footer-copy {
+        margin: 0 0 20px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(246, 244, 250, 0.72);
+        max-width: 34ch;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 8px;
+        max-width: 360px;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        min-width: 0;
+        height: 44px;
+        padding: 0 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 14px;
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(246, 244, 250, 0.55);
+      }
+
+      .newsletter-btn {
+        height: 44px;
+        padding: 0 18px;
+        border-radius: 10px;
+        border: none;
+        background: #ffffff;
+        color: #1f1929;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .newsletter-msg {
+        margin: 8px 0 0;
+        font-size: 13px;
+        color: #b4d58a;
+      }
+
+      .footer-col-title {
+        margin: 0 0 14px;
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(246, 244, 250, 0.62);
+      }
+
+      .footer-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .footer-links a,
+      .footer-links button {
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        font-size: 14px;
+        color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .footer-links a:hover,
+      .footer-links button:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        padding-top: 24px;
+        font-size: 13px;
+        color: rgba(246, 244, 250, 0.6);
+      }
+
+      /* =========================================================
+         CART DRAWER & REGISTER MODAL
+         ========================================================= */
+      .overlay-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        background: rgba(21, 16, 28, 0.45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .overlay-backdrop.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .cart-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(440px, 100vw);
+        z-index: 70;
+        background: var(--bg-surface);
+        color: var(--ink);
+        border-left: 1px solid var(--border-hairline);
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .cart-drawer.is-open {
+        transform: translateX(0);
+      }
+
+      .modal-dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -48%) scale(0.97);
+        width: min(460px, calc(100vw - 32px));
+        max-height: calc(100vh - 32px);
+        overflow-y: auto;
+        z-index: 70;
+        background: var(--bg-surface);
+        color: var(--ink);
+        border: 1px solid var(--border-hairline);
+        border-radius: 20px;
+        padding: 28px;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .modal-dialog.is-open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .drawer-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+
+      .drawer-title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .close-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid var(--border-hairline);
+        background: var(--bg-surface);
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .close-btn:hover {
+        background: var(--bg-subtle);
+      }
+
+      .drawer-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .shipping-bar {
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: var(--bg-subtle);
+        font-size: 13px;
+        color: var(--ink);
+      }
+
+      .shipping-track {
+        margin-top: 8px;
+        height: 6px;
+        border-radius: 4px;
+        background: rgba(31, 25, 41, 0.1);
+        overflow: hidden;
+      }
+
+      .shipping-fill {
+        height: 100%;
+        background: var(--ink);
+        transition: width 0.25s ease;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+
+      .cart-item-info {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .cart-item-title {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .cart-item-sub {
+        font-size: 12px;
+        color: var(--ink-muted);
+      }
+
+      .cart-item-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+      }
+
+      .drawer-foot {
+        padding: 18px 24px 24px;
+        border-top: 1px solid var(--border-hairline);
+        background: var(--bg-page);
+      }
+
+      .total-line {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: var(--ink-muted);
+        margin-bottom: 6px;
+      }
+
+      .total-line.is-grand {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-top: 8px;
+        margin-bottom: 16px;
+      }
+
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+
+      .form-field label {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .form-field input,
+      .form-field select {
+        height: 44px;
+        padding: 0 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border-hairline);
+        background: var(--bg-surface);
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 14px;
+      }
+
+      .form-error {
+        margin: 0 0 12px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #b42318;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .piece-inner {
+          animation: none !important;
+          transform: rotate(var(--rot, 0deg));
+        }
+        .underline {
+          transition: none !important;
+        }
+        .is-opening-pending .ui-reveal {
+          opacity: 1 !important;
+          translate: none !important;
+        }
+        .sticky-nav,
+        .cart-drawer,
+        .modal-dialog,
+        .overlay-backdrop,
+        .product-card,
+        .btn {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="is-opening-pending">
+    <!-- Scrolled Sticky Top Bar (Appears below the hero) -->
+    <header class="sticky-nav" id="stickyNav" aria-label="Site navigation">
+      <div class="sticky-nav-inner">
+        <a href="#hero" class="sticky-brand">Sora</a>
+        <nav class="sticky-links" aria-label="Sections">
+          <a href="#shop">Flavours</a>
+          <a href="#build-box">Build Box</a>
+          <a href="#craft">Our Craft</a>
+          <a href="#reviews">Reviews & FAQ</a>
+        </nav>
+        <button type="button" class="sticky-cta tabular" id="stickyCartBtn">Cart (0)</button>
+      </div>
+    </header>
+
+    <!-- Full-Viewport Product Hero Slider -->
+    <section class="hero" id="hero">
+      <main class="stage" id="stage" data-active="peach"></main>
+
+      <div class="ui" id="ui">
+        <header class="header">
+          <a href="#hero" class="logo ui-reveal" id="logo">Sora</a>
+          <nav class="tabs ui-reveal" id="tabs" aria-label="Flavours">
+            <button type="button" class="tab" data-index="0" aria-current="true">Peach</button>
+            <button type="button" class="tab" data-index="1">Yuzu</button>
+            <button type="button" class="tab" data-index="2">Matcha</button>
+            <button type="button" class="tab" data-index="3">Grapefruit</button>
+            <span class="underline" id="underline" aria-hidden="true"></span>
+          </nav>
+          <div class="account ui-reveal" id="account">
+            <button type="button" id="cartLink">Cart</button>
+            <span class="sep" aria-hidden="true">|</span>
+            <button type="button" id="registerLink">Register</button>
+          </div>
+        </header>
+
+        <button type="button" class="arrow arrow-prev ui-reveal" id="prevBtn" aria-label="Previous flavour">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M24 14H4 M12 6l-8 8 8 8" />
+          </svg>
+        </button>
+
+        <a href="#shop" class="shop-now ui-reveal" id="shopNow">SHOP NOW</a>
+
+        <button type="button" class="arrow arrow-next ui-reveal" id="nextBtn" aria-label="Next flavour">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 14h20 M16 6l8 8-8 8" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Section 1: Featured Collection & Purchase Spotlight / Custom 6-Pack Builder -->
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Botanical tonic collection</p>
+          <h2 class="section-title">Four cold-pressed tonics, zero added sugar</h2>
+          <p class="section-sub">
+            Pressed from ripe orchard citrus, stone fruit, and shade-grown tea in 250 ml frosted glass. Inspect nutrition details or build a chilled 6-pack.
+          </p>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="purchase-grid" id="build-box">
+          <!-- Contiguous Purchase Module -->
+          <div class="panel" id="spotlightPanel"></div>
+
+          <!-- Custom 6-Pack Builder -->
+          <div class="panel" id="boxBuilderPanel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Cold-Pressing Craft & Process -->
+    <section class="section section-surface" id="craft">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Kitchen craft</p>
+          <h2 class="section-title">How every bottle keeps the orchard taste</h2>
+          <p class="section-sub">
+            Heat pasteurisation dulls delicate citrus oils and stone-fruit aromatics. We cold-press in small batches and bottle in frosted glass.
+          </p>
+        </div>
+
+        <div class="craft-grid">
+          <div class="craft-media">
+            <img
+              src="/src/assets/images/craft_botanical_kitchen_1795334376995.jpg"
+              alt="Fresh halved peaches, yellow yuzu citrus, green limes, mint leaves, and pink grapefruit wedges beside chilled frosted glass tonic bottles on a travertine counter"
+              referrerpolicy="no-referrer"
+            />
+          </div>
+
+          <div class="craft-steps">
+            <div class="craft-step">
+              <h3 class="craft-step-title">01. Picked ripe, pressed at 4 °C</h3>
+              <p class="craft-step-copy">
+                White peaches, Japanese yuzu, ruby grapefruit, and fresh mint are cold-pressed within 48 hours of harvest so bright citrus zest and aromatics stay crisp.
+              </p>
+            </div>
+            <div class="craft-step">
+              <h3 class="craft-step-title">02. Zero concentrates, zero cane sugar</h3>
+              <p class="craft-step-copy">
+                We never dilute bottles with cheap syrup, artificial extracts, or refined sugar. Every bottle pairs whole-pressed juice with spring water and steeped botanicals.
+              </p>
+            </div>
+            <div class="craft-step">
+              <h3 class="craft-step-title">03. Sealed in frosted glass, delivered chilled</h3>
+              <p class="craft-step-copy">
+                250 ml frosted apothecary glass shields delicate botanicals from light. Orders pack in plant-fibre cold liners so bottles arrive ready for the fridge.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-strip">
+          <div>
+            <span class="metric-num tabular">4 °C</span>
+            <span class="metric-label">Cold-pressing temperature</span>
+          </div>
+          <div>
+            <span class="metric-num tabular">0 g</span>
+            <span class="metric-label">Added cane sugar per bottle</span>
+          </div>
+          <div>
+            <span class="metric-num tabular">250 ml</span>
+            <span class="metric-label">Frosted glass serving</span>
+          </div>
+          <div>
+            <span class="metric-num tabular">48 hr</span>
+            <span class="metric-label">Harvest-to-bottle window</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Customer Notes & FAQ -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Tasting notes & questions</p>
+          <h2 class="section-title">What regulars keep in the fridge</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <p class="review-quote">
+              “The Yuzu bottle has real aromatic peel oil and crisp citrus snap without tasting syrupy. I keep a weekly 6-pack chilled for afternoons.”
+            </p>
+            <div class="review-author">
+              <strong>Hannah Morales</strong> · Austin, TX · Yuzu 6-Pack
+            </div>
+          </article>
+          <article class="review-card">
+            <p class="review-quote">
+              “Peach with ginger and rosemary feels like an orchard aperitif in a frosted bottle. The custom box lets us mix Peach and Grapefruit effortlessly.”
+            </p>
+            <div class="review-author">
+              <strong>Daniel Cho</strong> · Seattle, WA · Custom 6-Pack
+            </div>
+          </article>
+          <article class="review-card">
+            <p class="review-quote">
+              “Matcha with mint and lime replaced my mid-afternoon coffee crash. Smooth ceremonial tea finish and the frosted glass stays ice-cold.”
+            </p>
+            <div class="review-author">
+              <strong>Priya Nair</strong> · Chicago, IL · Matcha 12-Pack
+            </div>
+          </article>
+        </div>
+
+        <div class="faq-wrap" id="faq">
+          <h3 class="box-title" style="margin-bottom: 16px;">Frequently asked questions</h3>
+          <div class="faq-list" id="faqList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <span class="footer-brand">Sora</span>
+            <p class="footer-copy">
+              Small-batch cold-pressed botanical tonics bottled in recyclable 250 ml frosted glass.
+            </p>
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+              <label for="newsletterEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email address</label>
+              <input
+                type="email"
+                id="newsletterEmail"
+                class="newsletter-input"
+                placeholder="you@example.com"
+                required
+              />
+              <button type="submit" class="newsletter-btn">Join list</button>
+            </form>
+            <p class="newsletter-msg" id="newsletterMsg" hidden></p>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Flavours</h4>
+            <ul class="footer-links">
+              <li><button type="button" class="footer-flavour-btn" data-index="0">Peach</button></li>
+              <li><button type="button" class="footer-flavour-btn" data-index="1">Yuzu</button></li>
+              <li><button type="button" class="footer-flavour-btn" data-index="2">Matcha</button></li>
+              <li><button type="button" class="footer-flavour-btn" data-index="3">Grapefruit</button></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Kitchen</h4>
+            <ul class="footer-links">
+              <li><a href="#shop">Shop bottles</a></li>
+              <li><a href="#build-box">Build a 6-pack</a></li>
+              <li><a href="#craft">Cold-pressing craft</a></li>
+              <li><a href="#faq">Common questions</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Account</h4>
+            <ul class="footer-links">
+              <li><button type="button" id="footerCartBtn">View cart</button></li>
+              <li><button type="button" id="footerRegisterBtn">Create account</button></li>
+              <li><a href="#reviews">Customer notes</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 Sora Tonics · Cold-pressed botanicals</span>
+          <span>Free chilled delivery on orders over $35</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Shared Modal/Drawer Backdrop -->
+    <div class="overlay-backdrop" id="overlayBackdrop" aria-hidden="true"></div>
+
+    <!-- Slide-Over Cart & Checkout Drawer -->
+    <aside
+      class="cart-drawer"
+      id="cartDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cartDrawerTitle"
+      hidden
+    >
+      <div class="drawer-head">
+        <h2 class="drawer-title" id="cartDrawerTitle">Your Cart</h2>
+        <button type="button" class="close-btn" id="closeCartBtn" aria-label="Close cart">×</button>
+      </div>
+      <div class="drawer-body" id="cartDrawerBody"></div>
+      <div class="drawer-foot" id="cartDrawerFoot"></div>
+    </aside>
+
+    <!-- Register / Member Modal -->
+    <div
+      class="modal-dialog"
+      id="registerModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="registerModalTitle"
+      hidden
+    >
+      <div class="drawer-head" style="padding: 0 0 16px; margin-bottom: 18px;">
+        <h2 class="drawer-title" id="registerModalTitle">Sora Club Account</h2>
+        <button type="button" class="close-btn" id="closeRegisterBtn" aria-label="Close account dialog">×</button>
+      </div>
+      <div id="registerModalBody"></div>
+    </div>
+
+    <script>
+      (function () {
+        'use strict';
+
+        var PROXY_PREFIX = 'https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=';
+        var SHEET_SIZE = 2048;
+
+        var SHADOWS = [
+          [345, 650, 170, 24],
+          [720, 708, 320, 30],
+          [1318, 638, 160, 22],
+          [1045, 760, 150, 22],
+        ];
+
+        var FLAVOURS = [
+          {
+            id: 'peach',
+            word: 'Peach',
+            color: '#F4B6A4',
+            cardBg: '#FDF0EC',
+            blend: 'White Peach · Ginger · Rosemary',
+            summary: 'Velvety sun-ripened white peach cold-pressed with warm Peruvian ginger root and a bright whisper of garden rosemary.',
+            ingredients: 'Pressed white peach (62%), sparkling spring water (33%), fresh ginger juice (3%), rosemary infusion (2%).',
+            nutrition: { kcal: '68', fiber: '1.8 g', vitC: '42 mg', addedSugar: '0 g' },
+            sheet: './sheets/peach.png',
+            items: [
+              [236, 60, 348, 900],
+              [1140, 203, 620, 574],
+              [180, 1208, 620, 564],
+              [1160, 1214, 640, 531],
+            ],
+            bottle: { x: 605, y: 115, w: 230 },
+            pieces: [
+              { item: 2, x: 382, y: 168, w: 120, rot: -10, mirror: false, layer: 'fruit' },
+              { item: 3, x: 960, y: 232, w: 132, rot: 12, mirror: false, layer: 'fruit' },
+              { item: 1, x: 292, y: 472, w: 142, rot: -8, mirror: false, layer: 'fruit' },
+              { item: 3, x: 1242, y: 455, w: 138, rot: 18, mirror: true, layer: 'fruit' },
+              { item: 2, x: 968, y: 585, w: 126, rot: 25, mirror: false, layer: 'fruit' },
+              { item: 1, x: -18, y: 580, w: 260, rot: 0, mirror: false, layer: 'corner' },
+              { item: 2, x: 1275, y: 35, w: 210, rot: 15, mirror: false, layer: 'corner' },
+            ],
+          },
+          {
+            id: 'yuzu',
+            word: 'Yuzu',
+            color: '#EFE08B',
+            cardBg: '#FCF8E3',
+            blend: 'Japanese Yuzu · Lemon · Thyme',
+            summary: 'Aromatic mountain-grown yuzu citrus layered with cold-pressed Meyer lemon and crisp lemon thyme.',
+            ingredients: 'Cold-pressed yuzu (28%), Meyer lemon juice (18%), sparkling spring water (52%), lemon thyme steep (2%).',
+            nutrition: { kcal: '44', fiber: '1.1 g', vitC: '76 mg', addedSugar: '0 g' },
+            sheet: './sheets/yuzu.png',
+            items: [
+              [251, 60, 318, 900],
+              [1140, 192, 620, 595],
+              [180, 1192, 620, 595],
+              [1160, 1160, 640, 640],
+            ],
+            bottle: { x: 615, y: 115, w: 210 },
+            pieces: [
+              { item: 3, x: 385, y: 162, w: 118, rot: 0, mirror: false, layer: 'fruit' },
+              { item: 2, x: 962, y: 225, w: 132, rot: -15, mirror: false, layer: 'fruit' },
+              { item: 1, x: 295, y: 468, w: 145, rot: 8, mirror: false, layer: 'fruit' },
+              { item: 2, x: 1240, y: 455, w: 138, rot: 22, mirror: true, layer: 'fruit' },
+              { item: 3, x: 965, y: 582, w: 124, rot: -12, mirror: false, layer: 'fruit' },
+              { item: 2, x: -12, y: 575, w: 255, rot: 0, mirror: false, layer: 'corner' },
+              { item: 1, x: 1280, y: 32, w: 205, rot: 0, mirror: false, layer: 'corner' },
+            ],
+          },
+          {
+            id: 'matcha',
+            word: 'Matcha',
+            color: '#A8CF98',
+            cardBg: '#EDF5E9',
+            blend: 'Uji Matcha · Mint · Lime',
+            summary: 'First-harvest ceremonial Uji matcha whisked cold with crushed spearmint leaves and bright Key lime juice.',
+            ingredients: 'Cold-whisked Uji matcha infusion (64%), pressed apple (22%), Key lime juice (10%), fresh spearmint (4%).',
+            nutrition: { kcal: '52', fiber: '1.6 g', vitC: '34 mg', addedSugar: '0 g' },
+            sheet: './sheets/matcha.png',
+            items: [
+              [248, 60, 323, 900],
+              [1140, 278, 620, 424],
+              [180, 1193, 620, 594],
+              [1160, 1161, 640, 637],
+            ],
+            bottle: { x: 614, y: 115, w: 212 },
+            pieces: [
+              { item: 1, x: 378, y: 165, w: 135, rot: -12, mirror: false, layer: 'fruit' },
+              { item: 3, x: 962, y: 225, w: 126, rot: 0, mirror: false, layer: 'fruit' },
+              { item: 2, x: 296, y: 472, w: 142, rot: -10, mirror: false, layer: 'fruit' },
+              { item: 1, x: 1242, y: 462, w: 148, rot: 18, mirror: true, layer: 'fruit' },
+              { item: 3, x: 964, y: 586, w: 120, rot: 25, mirror: false, layer: 'fruit' },
+              { item: 2, x: -12, y: 575, w: 255, rot: 0, mirror: false, layer: 'corner' },
+              { item: 3, x: 1280, y: 32, w: 205, rot: 0, mirror: false, layer: 'corner' },
+            ],
+          },
+          {
+            id: 'grapefruit',
+            word: 'Grapefruit',
+            color: '#E9A8B8',
+            cardBg: '#FCEBF0',
+            blend: 'Ruby Grapefruit · Hibiscus · Sea Salt',
+            summary: 'Zesty ruby red grapefruit pressed whole with steeped crimson hibiscus petals and a crisp pinch of Pacific sea salt.',
+            ingredients: 'Ruby grapefruit juice (58%), sparkling spring water (36%), hibiscus flower steep (5%), sea salt (1%).',
+            nutrition: { kcal: '58', fiber: '1.4 g', vitC: '84 mg', addedSugar: '0 g' },
+            sheet: './sheets/grapefruit.png',
+            items: [
+              [261, 60, 298, 896],
+              [1140, 183, 620, 614],
+              [180, 1186, 620, 607],
+              [1160, 1216, 640, 528],
+            ],
+            bottle: { x: 621, y: 112, w: 198 },
+            pieces: [
+              { item: 3, x: 378, y: 158, w: 130, rot: -14, mirror: false, layer: 'fruit' },
+              { item: 2, x: 958, y: 222, w: 128, rot: 12, mirror: false, layer: 'fruit' },
+              { item: 1, x: 292, y: 468, w: 142, rot: -8, mirror: false, layer: 'fruit' },
+              { item: 3, x: 1244, y: 452, w: 138, rot: 18, mirror: true, layer: 'fruit' },
+              { item: 2, x: 964, y: 582, w: 126, rot: -15, mirror: false, layer: 'fruit' },
+              { item: 1, x: -12, y: 572, w: 250, rot: 0, mirror: false, layer: 'corner' },
+              { item: 2, x: 1280, y: 32, w: 205, rot: 20, mirror: false, layer: 'corner' },
+            ],
+          },
+        ];
+
+        var PACK_PRICES = {
+          single: 4.5,
+          pack6: 24.0,
+          pack12: 44.0,
+        };
+
+        var PACK_LABELS = {
+          single: 'Single bottle · 250 ml',
+          pack6: '6-Pack · 6 × 250 ml',
+          pack12: '12-Pack · 12 × 250 ml',
+        };
+
+        var FAQ_ITEMS = [
+          {
+            q: 'How long do Sora bottles stay fresh in the fridge?',
+            a: 'Unopened bottles keep chilled at 0–4 °C for up to 14 days thanks to cold high-pressure sealing in UV-shielded frosted glass. Once opened, enjoy within 48 hours.',
+          },
+          {
+            q: 'Do any flavours contain added sugar or juice concentrates?',
+            a: 'Never. Every bottle contains 0 g added cane sugar, zero artificial sweeteners, and zero concentrate filler. Brightness comes strictly from cold-pressed fruit and botanicals.',
+          },
+          {
+            q: 'How does chilled delivery work?',
+            a: 'Orders ship overnight in recyclable plant-fibre insulated cartons with cold packs so bottles arrive fridge-cold. Orders over $35 qualify for free chilled delivery.',
+          },
+          {
+            q: 'Can I mix different flavours in a 6-pack?',
+            a: 'Yes — use the Build Your Own 6-Pack mixer right above our kitchen section to combine any six bottles across Peach, Yuzu, Matcha, and Grapefruit for $24.00.',
+          },
+        ];
+
+        var COVERAGE_TABLE = [
+          [0, 0],
+          [0.031, 0.006],
+          [0.134, 0.012],
+          [0.206, 0.023],
+          [0.278, 0.047],
+          [0.34, 0.07],
+          [0.412, 0.105],
+          [0.485, 0.158],
+          [0.546, 0.246],
+          [0.583, 0.55],
+          [0.62, 0.825],
+          [0.69, 0.9],
+          [0.79, 0.94],
+          [0.85, 0.956],
+          [0.93, 0.975],
+          [1, 1],
+        ];
+
+        var LAYER_KEYS = ['word', 'shadow', 'bottle', 'fruit', 'corner'];
+        var PARALLAX_FACTORS = {
+          word: 0.4,
+          shadow: 0.3,
+          bottle: 0.15,
+          fruit: 0.55,
+          corner: 0.75,
+        };
+
+        var root = document.documentElement;
+        var heroEl = document.getElementById('hero');
+        var stage = document.getElementById('stage');
+        var tabsEl = document.getElementById('tabs');
+        var tabButtons = Array.prototype.slice.call(tabsEl.querySelectorAll('.tab'));
+        var underlineEl = document.getElementById('underline');
+        var prevBtn = document.getElementById('prevBtn');
+        var nextBtn = document.getElementById('nextBtn');
+        var logoEl = document.getElementById('logo');
+        var accountEl = document.getElementById('account');
+        var shopNowEl = document.getElementById('shopNow');
+        var cartLinkEl = document.getElementById('cartLink');
+        var registerLinkEl = document.getElementById('registerLink');
+        var stickyNavEl = document.getElementById('stickyNav');
+        var stickyCartBtn = document.getElementById('stickyCartBtn');
+
+        var measureCanvas = document.createElement('canvas');
+        var measureCtx = measureCanvas.getContext('2d');
+        var reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        var slideRefs = [];
+        var currentIndex = 0;
+        var isTransitioning = false;
+        var lastInteractionAt = 0;
+        var currentU = 1;
+        var isMobile = false;
+        var activeOpeningAnimations = [];
+        var openingDone = false;
+
+        // Store state
+        var selectedFlavourIdx = 0;
+        var selectedPackSize = 'pack6';
+        var customMix = { peach: 2, yuzu: 2, matcha: 1, grapefruit: 1 };
+        var cart = loadJson('sora_cart_v1', []);
+        var member = loadJson('sora_member_v1', null);
+        var lastOrderReceipt = null;
+        var isCheckingOut = false;
+        var spotlightFeedbackTimer = null;
+        var boxFeedbackTimer = null;
+
+        function loadJson(key, fallback) {
+          try {
+            var raw = localStorage.getItem(key);
+            return raw ? JSON.parse(raw) : fallback;
+          } catch (e) {
+            return fallback;
+          }
+        }
+
+        function saveJson(key, value) {
+          try {
+            localStorage.setItem(key, JSON.stringify(value));
+          } catch (e) {}
+        }
+
+        function proxyUrl(original) {
+          if (original.indexOf('./') === 0 || original.indexOf('/') === 0) {
+            return original;
+          }
+          return PROXY_PREFIX + encodeURIComponent(original);
+        }
+
+        function smoothstep(k) {
+          var c = k < 0 ? 0 : k > 1 ? 1 : k;
+          return c * c * (3 - 2 * c);
+        }
+
+        function cover(t) {
+          if (t <= 0) return 0;
+          if (t >= 1) return 1;
+          for (var i = 0; i < COVERAGE_TABLE.length - 1; i++) {
+            var t0 = COVERAGE_TABLE[i][0];
+            var c0 = COVERAGE_TABLE[i][1];
+            var t1 = COVERAGE_TABLE[i + 1][0];
+            var c1 = COVERAGE_TABLE[i + 1][1];
+            if (t >= t0 && t <= t1) {
+              var k = (t - t0) / (t1 - t0);
+              return c0 + (c1 - c0) * smoothstep(k);
+            }
+          }
+          return 1;
+        }
+
+        function easeOutQuad(x) {
+          var c = x < 0 ? 0 : x > 1 ? 1 : x;
+          return 1 - (1 - c) * (1 - c);
+        }
+
+        function uCalc(designPx) {
+          return 'calc(' + Number(designPx.toFixed(4)) + ' * var(--u))';
+        }
+
+        function applyCrop(el, sheetProxyUrl, box, targetW) {
+          var bx = box[0];
+          var by = box[1];
+          var bw = box[2];
+          var bh = box[3];
+          var s = targetW / bw;
+          el.style.width = uCalc(targetW);
+          el.style.height = uCalc(bh * s);
+          el.style.backgroundImage = 'url("' + sheetProxyUrl + '")';
+          el.style.backgroundSize = uCalc(SHEET_SIZE * s) + ' ' + uCalc(SHEET_SIZE * s);
+          el.style.backgroundPosition = uCalc(-bx * s) + ' ' + uCalc(-by * s);
+        }
+
+        function applyFixedBottleCrop(el, flavour, targetW) {
+          var box = flavour.items[0];
+          var s = targetW / box[2];
+          el.style.width = targetW + 'px';
+          el.style.height = (box[3] * s).toFixed(2) + 'px';
+          el.style.backgroundImage = 'url("' + proxyUrl(flavour.sheet) + '")';
+          el.style.backgroundSize = (SHEET_SIZE * s).toFixed(2) + 'px ' + (SHEET_SIZE * s).toFixed(2) + 'px';
+          el.style.backgroundPosition = (-box[0] * s).toFixed(2) + 'px ' + (-box[1] * s).toFixed(2) + 'px';
+        }
+
+        function measureInkWidthAt100(word, letterSpacingEm) {
+          if (!measureCtx) return word.length * 60;
+          measureCtx.font = '700 100px Poppins, system-ui, sans-serif';
+          if ('letterSpacing' in measureCtx) {
+            measureCtx.letterSpacing = letterSpacingEm * 100 + 'px';
+            var m = measureCtx.measureText(word);
+            return m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
+          }
+          var base = measureCtx.measureText(word);
+          return base.actualBoundingBoxLeft + base.actualBoundingBoxRight + (word.length - 1) * letterSpacingEm * 100;
+        }
+
+        function buildSlides() {
+          FLAVOURS.forEach(function (flavour, idx) {
+            var sheetUrl = proxyUrl(flavour.sheet);
+            var preloader = new Image();
+            preloader.decoding = 'async';
+            preloader.src = sheetUrl;
+
+            var section = document.createElement('section');
+            section.className = 'slide' + (idx === 0 ? ' is-active' : '');
+            section.dataset.flavour = flavour.id;
+            section.style.backgroundColor = flavour.color;
+            section.setAttribute('aria-hidden', idx === 0 ? 'false' : 'true');
+
+            var frame = document.createElement('div');
+            frame.className = 'frame';
+
+            var layers = {};
+
+            var wordLayer = document.createElement('div');
+            wordLayer.className = 'layer layer-word';
+            var wordEl = document.createElement('div');
+            wordEl.className = 'word';
+            wordEl.textContent = flavour.word;
+            wordLayer.appendChild(wordEl);
+            layers.word = wordLayer;
+            frame.appendChild(wordLayer);
+
+            var shadowLayer = document.createElement('div');
+            shadowLayer.className = 'layer layer-shadow';
+            SHADOWS.forEach(function (sh) {
+              var sEl = document.createElement('div');
+              sEl.className = 'shadow';
+              sEl.style.left = uCalc(sh[0] - sh[2] / 2);
+              sEl.style.top = uCalc(sh[1] - sh[3] / 2);
+              sEl.style.width = uCalc(sh[2]);
+              sEl.style.height = uCalc(sh[3]);
+              shadowLayer.appendChild(sEl);
+            });
+            layers.shadow = shadowLayer;
+            frame.appendChild(shadowLayer);
+
+            var bottleLayer = document.createElement('div');
+            bottleLayer.className = 'layer layer-bottle';
+            var bottleEl = document.createElement('div');
+            bottleEl.className = 'bottle';
+            bottleEl.style.left = uCalc(flavour.bottle.x);
+            bottleEl.style.top = uCalc(flavour.bottle.y);
+            applyCrop(bottleEl, sheetUrl, flavour.items[0], flavour.bottle.w);
+            bottleLayer.appendChild(bottleEl);
+            layers.bottle = bottleLayer;
+            frame.appendChild(bottleLayer);
+
+            var fruitLayer = document.createElement('div');
+            fruitLayer.className = 'layer layer-fruit';
+            var cornerLayer = document.createElement('div');
+            cornerLayer.className = 'layer layer-corner';
+
+            flavour.pieces.forEach(function (p) {
+              var outer = document.createElement('div');
+              outer.className = 'piece-outer' + (p.mirror ? ' is-mirrored' : '');
+              outer.style.left = uCalc(p.x);
+              outer.style.top = uCalc(p.y);
+              var box = flavour.items[p.item];
+              var s = p.w / box[2];
+              outer.style.width = uCalc(p.w);
+              outer.style.height = uCalc(box[3] * s);
+
+              var inner = document.createElement('div');
+              inner.className = 'piece-inner';
+              applyCrop(inner, sheetUrl, box, p.w);
+              inner.style.setProperty('--rot', p.rot + 'deg');
+              inner.style.setProperty('--dur', (3.2 + Math.random() * 1.8).toFixed(2) + 's');
+              inner.style.setProperty('--delay', (-Math.random() * 4).toFixed(2) + 's');
+
+              outer.appendChild(inner);
+              if (p.layer === 'corner') {
+                cornerLayer.appendChild(outer);
+              } else {
+                fruitLayer.appendChild(outer);
+              }
+            });
+
+            layers.fruit = fruitLayer;
+            layers.corner = cornerLayer;
+            frame.appendChild(fruitLayer);
+            frame.appendChild(cornerLayer);
+
+            section.appendChild(frame);
+            stage.appendChild(section);
+
+            slideRefs.push({
+              flavour: flavour,
+              section: section,
+              wordEl: wordEl,
+              layers: layers,
+            });
+          });
+        }
+
+        function layoutWords() {
+          var vw = window.innerWidth;
+          slideRefs.forEach(function (ref) {
+            var word = ref.flavour.word;
+            var ink100Default = measureInkWidthAt100(word, 0.005);
+            var isLong = ink100Default * 4.45 > 1330;
+            var letterSpacingEm = isLong ? -0.035 : 0.005;
+            var ink100 = isLong ? measureInkWidthAt100(word, -0.035) : ink100Default;
+
+            var fontSize = 445;
+            if (isMobile) {
+              var visibleWidth = Math.min(1440, vw / currentU) * 0.92;
+              fontSize = Math.min(445, (visibleWidth / ink100) * 100);
+            } else if (isLong) {
+              fontSize = Math.min(445, (1400 / ink100) * 100);
+            }
+
+            var baseline = 403.5 + (0.698 * fontSize) / 2;
+            var top = baseline - 0.85 * fontSize;
+
+            ref.wordEl.style.fontSize = uCalc(fontSize);
+            ref.wordEl.style.letterSpacing = letterSpacingEm + 'em';
+            ref.wordEl.style.top = uCalc(top);
+          });
+        }
+
+        function updateUnderline(instant) {
+          var activeTab = tabButtons[currentIndex];
+          if (!activeTab) return;
+          if (instant || reducedMotionQuery.matches) {
+            underlineEl.style.transition = 'none';
+          }
+          underlineEl.style.width = activeTab.offsetWidth + 'px';
+          underlineEl.style.transform = 'translateX(' + activeTab.offsetLeft + 'px)';
+          if (instant || reducedMotionQuery.matches) {
+            void underlineEl.offsetWidth;
+            underlineEl.style.transition = '';
+          }
+        }
+
+        function layout() {
+          var vw = window.innerWidth;
+          var vh = window.innerHeight;
+          isMobile = vw <= 820 || vh > vw;
+          root.classList.toggle('is-mobile', isMobile);
+
+          if (isMobile) {
+            currentU = Math.max(0.1, Math.min(vw / 640, (vh - 200) / 620));
+            root.style.setProperty('--u', currentU + 'px');
+            root.style.setProperty('--fy', '8px');
+          } else {
+            currentU = Math.min(vw / 1440, vh / 900);
+            root.style.setProperty('--u', currentU + 'px');
+            root.style.setProperty('--fy', '0px');
+          }
+
+          layoutWords();
+          updateUnderline(true);
+        }
+
+        function finishOpeningImmediately() {
+          if (openingDone) return;
+          openingDone = true;
+          activeOpeningAnimations.forEach(function (anim) {
+            try {
+              anim.cancel();
+            } catch (e) {}
+          });
+          activeOpeningAnimations = [];
+          document.body.classList.remove('is-opening-pending');
+          var berryLayers = slideRefs[0].layers;
+          LAYER_KEYS.forEach(function (k) {
+            berryLayers[k].style.transform = '';
+          });
+          [logoEl, tabsEl, accountEl, prevBtn, shopNowEl, nextBtn].forEach(function (el) {
+            el.style.opacity = '';
+            el.style.translate = '';
+          });
+        }
+
+        function runOpeningSequence() {
+          if (reducedMotionQuery.matches) {
+            finishOpeningImmediately();
+            return;
+          }
+
+          var frameWidthPx = 1440 * currentU;
+          var easing = 'cubic-bezier(0.22, 0.8, 0.3, 1)';
+          var berryLayers = slideRefs[0].layers;
+
+          LAYER_KEYS.forEach(function (key) {
+            var el = berryLayers[key];
+            var startX = PARALLAX_FACTORS[key] * frameWidthPx;
+            var anim = el.animate(
+              [
+                { transform: 'translateX(' + startX + 'px)' },
+                { transform: 'translateX(0px)' },
+              ],
+              {
+                duration: 900,
+                delay: 0,
+                easing: easing,
+                fill: 'both',
+              }
+            );
+            anim.onfinish = function () {
+              if (!isTransitioning) {
+                el.style.transform = '';
+              }
+              try {
+                anim.cancel();
+              } catch (e) {}
+            };
+            activeOpeningAnimations.push(anim);
+          });
+
+          var uiSteps = [
+            { el: logoEl, delay: 250 },
+            { el: tabsEl, delay: 330 },
+            { el: accountEl, delay: 410 },
+            { el: prevBtn, delay: 490 },
+            { el: shopNowEl, delay: 570 },
+            { el: nextBtn, delay: 650 },
+          ];
+
+          uiSteps.forEach(function (step) {
+            var anim = step.el.animate(
+              [
+                { opacity: 0, translate: '0 14px' },
+                { opacity: 1, translate: '0 0' },
+              ],
+              {
+                duration: 1000,
+                delay: step.delay,
+                easing: easing,
+                fill: 'both',
+              }
+            );
+            anim.onfinish = function () {
+              step.el.style.opacity = '1';
+              step.el.style.translate = 'none';
+              try {
+                anim.cancel();
+              } catch (e) {}
+            };
+            activeOpeningAnimations.push(anim);
+          });
+
+          document.body.classList.remove('is-opening-pending');
+          setTimeout(finishOpeningImmediately, 1750);
+        }
+
+        function setTabSelection(idx) {
+          tabButtons.forEach(function (btn, i) {
+            if (i === idx) {
+              btn.setAttribute('aria-current', 'true');
+            } else {
+              btn.removeAttribute('aria-current');
+            }
+          });
+          stage.dataset.active = FLAVOURS[idx].id;
+        }
+
+        function goTo(targetIdx, dir) {
+          if (isTransitioning || targetIdx === currentIndex) return;
+
+          finishOpeningImmediately();
+
+          var fromRef = slideRefs[currentIndex];
+          var toRef = slideRefs[targetIdx];
+
+          currentIndex = targetIdx;
+          setTabSelection(targetIdx);
+          heroEl.style.backgroundColor = toRef.flavour.color;
+          updateUnderline(false);
+
+          if (reducedMotionQuery.matches) {
+            fromRef.section.classList.remove('is-active');
+            fromRef.section.setAttribute('aria-hidden', 'true');
+            toRef.section.classList.add('is-active');
+            toRef.section.setAttribute('aria-hidden', 'false');
+            return;
+          }
+
+          isTransitioning = true;
+          toRef.section.classList.add('is-entering');
+          toRef.section.setAttribute('aria-hidden', 'false');
+
+          var frameW = 1440 * currentU;
+
+          LAYER_KEYS.forEach(function (key) {
+            var offset = dir * PARALLAX_FACTORS[key] * frameW;
+            toRef.layers[key].style.transform = 'translateX(' + offset + 'px)';
+          });
+
+          var startTime = performance.now();
+
+          function tick(now) {
+            var elapsed = now - startTime;
+            var t = elapsed / 970;
+            var c = cover(t);
+
+            if (dir === 1) {
+              fromRef.section.style.clipPath = 'inset(0 ' + (c * 100).toFixed(4) + '% 0 0)';
+            } else {
+              fromRef.section.style.clipPath = 'inset(0 0 0 ' + (c * 100).toFixed(4) + '%)';
+            }
+
+            var driftX = -dir * c * 0.14 * frameW;
+            LAYER_KEYS.forEach(function (key) {
+              fromRef.layers[key].style.transform = 'translateX(' + driftX + 'px)';
+            });
+
+            var p = (t - 0.5) / 0.42;
+            var k = easeOutQuad(p);
+            LAYER_KEYS.forEach(function (key) {
+              var offset = dir * (1 - k) * PARALLAX_FACTORS[key] * frameW;
+              toRef.layers[key].style.transform = 'translateX(' + offset + 'px)';
+            });
+
+            if (t < 1 || k < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              fromRef.section.classList.remove('is-active');
+              fromRef.section.setAttribute('aria-hidden', 'true');
+              fromRef.section.style.clipPath = '';
+
+              toRef.section.classList.remove('is-entering');
+              toRef.section.classList.add('is-active');
+
+              LAYER_KEYS.forEach(function (key) {
+                fromRef.layers[key].style.transform = '';
+                toRef.layers[key].style.transform = '';
+              });
+
+              isTransitioning = false;
+            }
+          }
+
+          requestAnimationFrame(tick);
+        }
+
+        function recordInteraction() {
+          lastInteractionAt = Date.now();
+        }
+
+        function step(dir) {
+          var next = (currentIndex + dir + FLAVOURS.length) % FLAVOURS.length;
+          goTo(next, dir);
+        }
+
+        /* =========================================================
+           STOREFRONT & CART INTERACTIONS
+           ========================================================= */
+        function computeCartTotals() {
+          var itemCount = cart.reduce(function (sum, item) {
+            return sum + item.qty;
+          }, 0);
+          var subtotal = Number(
+            cart
+              .reduce(function (sum, item) {
+                return sum + item.unitPrice * item.qty;
+              }, 0)
+              .toFixed(2)
+          );
+          var shipping = subtotal === 0 || subtotal >= 35 ? 0 : 5;
+          var total = Number((subtotal + shipping).toFixed(2));
+          var remaining = Number(Math.max(0, 35 - subtotal).toFixed(2));
+          return {
+            itemCount: itemCount,
+            subtotal: subtotal,
+            shipping: shipping,
+            total: total,
+            remaining: remaining,
+          };
+        }
+
+        function updateHeaderBadges() {
+          var totals = computeCartTotals();
+          cartLinkEl.textContent = totals.itemCount > 0 ? 'Cart (' + totals.itemCount + ')' : 'Cart';
+          stickyCartBtn.textContent = 'Cart (' + totals.itemCount + ')';
+          registerLinkEl.textContent = member ? member.name.split(' ')[0] : 'Register';
+        }
+
+        function addToCart(entry, qty) {
+          var existing = null;
+          for (var i = 0; i < cart.length; i++) {
+            if (cart[i].id === entry.id) {
+              existing = cart[i];
+              break;
+            }
+          }
+          if (existing) {
+            existing.qty += qty || 1;
+          } else {
+            cart.push({
+              id: entry.id,
+              flavour: entry.flavour,
+              title: entry.title,
+              subtitle: entry.subtitle,
+              packSize: entry.packSize,
+              unitPrice: entry.unitPrice,
+              qty: qty || 1,
+            });
+          }
+          lastOrderReceipt = null;
+          saveJson('sora_cart_v1', cart);
+          updateHeaderBadges();
+          if (!document.getElementById('cartDrawer').hidden) {
+            renderCartDrawer();
+          }
+        }
+
+        function updateCartItemQty(id, delta) {
+          cart = cart
+            .map(function (item) {
+              if (item.id === id) {
+                return {
+                  id: item.id,
+                  flavour: item.flavour,
+                  title: item.title,
+                  subtitle: item.subtitle,
+                  packSize: item.packSize,
+                  unitPrice: item.unitPrice,
+                  qty: item.qty + delta,
+                };
+              }
+              return item;
+            })
+            .filter(function (item) {
+              return item.qty > 0;
+            });
+          saveJson('sora_cart_v1', cart);
+          updateHeaderBadges();
+          renderCartDrawer();
+        }
+
+        function renderProductGrid() {
+          var grid = document.getElementById('productGrid');
+          grid.innerHTML = '';
+
+          FLAVOURS.forEach(function (flavour, idx) {
+            var card = document.createElement('article');
+            card.className = 'product-card' + (idx === selectedFlavourIdx ? ' is-selected' : '');
+
+            var visual = document.createElement('div');
+            visual.className = 'product-visual';
+            visual.style.backgroundColor = flavour.cardBg;
+
+            var bottle = document.createElement('div');
+            bottle.className = 'card-bottle-crop';
+            applyFixedBottleCrop(bottle, flavour, 82);
+            visual.appendChild(bottle);
+
+            var meta = document.createElement('div');
+            meta.className = 'product-meta';
+            meta.textContent = '250 ml · No added sugar';
+
+            var title = document.createElement('h3');
+            title.className = 'product-name';
+            title.textContent = flavour.word;
+
+            var blend = document.createElement('p');
+            blend.className = 'product-blend';
+            blend.textContent = flavour.blend;
+
+            var foot = document.createElement('div');
+            foot.className = 'product-foot';
+
+            var price = document.createElement('span');
+            price.className = 'product-price tabular';
+            price.textContent = '$4.50';
+
+            var actions = document.createElement('div');
+            actions.className = 'product-actions';
+
+            var inspectBtn = document.createElement('button');
+            inspectBtn.type = 'button';
+            inspectBtn.className = 'btn btn-secondary btn-compact';
+            inspectBtn.textContent = 'Details';
+            inspectBtn.setAttribute('aria-label', 'Inspect ' + flavour.word + ' nutrition and packs');
+            inspectBtn.addEventListener('click', function () {
+              selectedFlavourIdx = idx;
+              renderProductGrid();
+              renderSpotlight();
+              document.getElementById('spotlightPanel').scrollIntoView({ behavior: reducedMotionQuery.matches ? 'auto' : 'smooth', block: 'nearest' });
+            });
+
+            var addBtn = document.createElement('button');
+            addBtn.type = 'button';
+            addBtn.className = 'btn btn-primary btn-compact';
+            addBtn.textContent = 'Add';
+            addBtn.setAttribute('aria-label', 'Add ' + flavour.word + ' single bottle to cart');
+            addBtn.addEventListener('click', function () {
+              addToCart({
+                id: flavour.id + '-single',
+                flavour: flavour.id,
+                title: flavour.word + ' Tonic',
+                subtitle: PACK_LABELS.single,
+                packSize: 'single',
+                unitPrice: PACK_PRICES.single,
+              }, 1);
+              addBtn.textContent = 'Added';
+              setTimeout(function () {
+                addBtn.textContent = 'Add';
+              }, 900);
+            });
+
+            actions.appendChild(inspectBtn);
+            actions.appendChild(addBtn);
+            foot.appendChild(price);
+            foot.appendChild(actions);
+
+            card.appendChild(visual);
+            card.appendChild(meta);
+            card.appendChild(title);
+            card.appendChild(blend);
+            card.appendChild(foot);
+            grid.appendChild(card);
+          });
+        }
+
+        function renderSpotlight(feedbackText) {
+          var panel = document.getElementById('spotlightPanel');
+          var flavour = FLAVOURS[selectedFlavourIdx];
+          var unitPrice = PACK_PRICES[selectedPackSize];
+
+          panel.innerHTML = '';
+
+          var layoutWrap = document.createElement('div');
+          layoutWrap.className = 'spotlight-layout';
+
+          var stageBox = document.createElement('div');
+          stageBox.className = 'spotlight-stage';
+          stageBox.style.backgroundColor = flavour.cardBg;
+          var bottle = document.createElement('div');
+          bottle.className = 'card-bottle-crop';
+          applyFixedBottleCrop(bottle, flavour, 88);
+          stageBox.appendChild(bottle);
+
+          var info = document.createElement('div');
+
+          var kicker = document.createElement('div');
+          kicker.className = 'spotlight-kicker';
+          kicker.textContent = flavour.blend;
+
+          var title = document.createElement('h3');
+          title.className = 'spotlight-title';
+          title.textContent = flavour.word + ' Tonic';
+
+          var desc = document.createElement('p');
+          desc.className = 'spotlight-desc';
+          desc.textContent = flavour.summary + ' Ingredients: ' + flavour.ingredients;
+
+          var nutri = document.createElement('div');
+          nutri.className = 'nutrition-row';
+          [
+            [flavour.nutrition.kcal, 'Calories'],
+            [flavour.nutrition.fiber, 'Fiber'],
+            [flavour.nutrition.vitC, 'Vitamin C'],
+            [flavour.nutrition.addedSugar, 'Added sugar'],
+          ].forEach(function (pair) {
+            var cell = document.createElement('div');
+            var val = document.createElement('span');
+            val.className = 'nutri-val tabular';
+            val.textContent = pair[0];
+            var lbl = document.createElement('span');
+            lbl.className = 'nutri-lbl';
+            lbl.textContent = pair[1];
+            cell.appendChild(val);
+            cell.appendChild(lbl);
+            nutri.appendChild(cell);
+          });
+
+          var packOpts = document.createElement('div');
+          packOpts.className = 'pack-options';
+          [
+            ['single', 'Single · $4.50'],
+            ['pack6', '6-Pack · $24.00'],
+            ['pack12', '12-Pack · $44.00'],
+          ].forEach(function (opt) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'pack-btn tabular' + (selectedPackSize === opt[0] ? ' is-active' : '');
+            b.textContent = opt[1];
+            b.addEventListener('click', function () {
+              selectedPackSize = opt[0];
+              renderSpotlight();
+            });
+            packOpts.appendChild(b);
+          });
+
+          var ctaRow = document.createElement('div');
+          ctaRow.className = 'spotlight-cta-row';
+
+          var addBtn = document.createElement('button');
+          addBtn.type = 'button';
+          addBtn.className = 'btn btn-primary tabular';
+          addBtn.textContent = 'Add to Cart — $' + unitPrice.toFixed(2);
+          addBtn.addEventListener('click', function () {
+            addToCart({
+              id: flavour.id + '-' + selectedPackSize,
+              flavour: flavour.id,
+              title: flavour.word + ' Tonic',
+              subtitle: PACK_LABELS[selectedPackSize],
+              packSize: selectedPackSize,
+              unitPrice: unitPrice,
+            }, 1);
+            clearTimeout(spotlightFeedbackTimer);
+            renderSpotlight('Added to cart');
+            spotlightFeedbackTimer = setTimeout(function () {
+              renderSpotlight('');
+            }, 2200);
+          });
+
+          ctaRow.appendChild(addBtn);
+
+          if (feedbackText) {
+            var fb = document.createElement('span');
+            fb.className = 'inline-feedback';
+            fb.textContent = feedbackText;
+            ctaRow.appendChild(fb);
+          }
+
+          info.appendChild(kicker);
+          info.appendChild(title);
+          info.appendChild(desc);
+          info.appendChild(nutri);
+          info.appendChild(packOpts);
+          info.appendChild(ctaRow);
+
+          layoutWrap.appendChild(stageBox);
+          layoutWrap.appendChild(info);
+          panel.appendChild(layoutWrap);
+        }
+
+        function renderBoxBuilder(feedbackText) {
+          var panel = document.getElementById('boxBuilderPanel');
+          var totalCount =
+            customMix.peach + customMix.yuzu + customMix.matcha + customMix.grapefruit;
+          var remaining = 6 - totalCount;
+
+          panel.innerHTML = '';
+
+          var head = document.createElement('div');
+          head.className = 'box-header';
+          var h3 = document.createElement('h3');
+          h3.className = 'box-title';
+          h3.textContent = 'Build your own 6-pack';
+          var sub = document.createElement('p');
+          sub.className = 'box-sub tabular';
+          sub.textContent =
+            totalCount === 6
+              ? '6 of 6 bottles selected · $24.00 chilled box'
+              : totalCount + ' of 6 bottles selected · choose ' + remaining + ' more';
+          head.appendChild(h3);
+          head.appendChild(sub);
+
+          var rows = document.createElement('div');
+          rows.className = 'box-rows';
+
+          FLAVOURS.forEach(function (flavour) {
+            var count = customMix[flavour.id];
+            var row = document.createElement('div');
+            row.className = 'box-row';
+
+            var left = document.createElement('div');
+            left.className = 'box-row-left';
+
+            var thumb = document.createElement('div');
+            thumb.className = 'box-thumb';
+            thumb.style.backgroundColor = flavour.cardBg;
+            var thumbCrop = document.createElement('div');
+            thumbCrop.className = 'card-bottle-crop';
+            applyFixedBottleCrop(thumbCrop, flavour, 15);
+            thumb.appendChild(thumbCrop);
+
+            var txt = document.createElement('div');
+            var name = document.createElement('div');
+            name.className = 'box-flavour-name';
+            name.textContent = flavour.word;
+            var desc = document.createElement('div');
+            desc.className = 'box-flavour-sub';
+            desc.textContent = flavour.blend;
+            txt.appendChild(name);
+            txt.appendChild(desc);
+
+            left.appendChild(thumb);
+            left.appendChild(txt);
+
+            var stepper = document.createElement('div');
+            stepper.className = 'stepper';
+
+            var minus = document.createElement('button');
+            minus.type = 'button';
+            minus.className = 'step-btn';
+            minus.textContent = '−';
+            minus.disabled = count <= 0;
+            minus.setAttribute('aria-label', 'Decrease ' + flavour.word + ' bottles');
+            minus.addEventListener('click', function () {
+              if (customMix[flavour.id] > 0) {
+                customMix[flavour.id] -= 1;
+                renderBoxBuilder();
+              }
+            });
+
+            var countSpan = document.createElement('span');
+            countSpan.className = 'step-count tabular';
+            countSpan.textContent = String(count);
+
+            var plus = document.createElement('button');
+            plus.type = 'button';
+            plus.className = 'step-btn';
+            plus.textContent = '+';
+            plus.disabled = totalCount >= 6;
+            plus.setAttribute('aria-label', 'Increase ' + flavour.word + ' bottles');
+            plus.addEventListener('click', function () {
+              if (totalCount < 6) {
+                customMix[flavour.id] += 1;
+                renderBoxBuilder();
+              }
+            });
+
+            stepper.appendChild(minus);
+            stepper.appendChild(countSpan);
+            stepper.appendChild(plus);
+
+            row.appendChild(left);
+            row.appendChild(stepper);
+            rows.appendChild(row);
+          });
+
+          var foot = document.createElement('div');
+          foot.className = 'box-footer';
+
+          var resetBtn = document.createElement('button');
+          resetBtn.type = 'button';
+          resetBtn.className = 'text-link-btn';
+          resetBtn.textContent = 'Reset mix';
+          resetBtn.addEventListener('click', function () {
+            customMix = { peach: 2, yuzu: 2, matcha: 1, grapefruit: 1 };
+            renderBoxBuilder();
+          });
+
+          var addBoxBtn = document.createElement('button');
+          addBoxBtn.type = 'button';
+          addBoxBtn.className = 'btn btn-primary tabular';
+          addBoxBtn.disabled = totalCount !== 6;
+          addBoxBtn.textContent =
+            totalCount === 6
+              ? 'Add Custom 6-Pack — $24.00'
+              : 'Select ' + remaining + ' more bottle' + (remaining === 1 ? '' : 's');
+          addBoxBtn.addEventListener('click', function () {
+            if (totalCount !== 6) return;
+            var summary = FLAVOURS.filter(function (f) {
+              return customMix[f.id] > 0;
+            })
+              .map(function (f) {
+                return customMix[f.id] + '× ' + f.word;
+              })
+              .join(', ');
+            var mixKey =
+              'custom-' +
+              customMix.peach +
+              '-' +
+              customMix.yuzu +
+              '-' +
+              customMix.matcha +
+              '-' +
+              customMix.grapefruit;
+            addToCart({
+              id: mixKey,
+              flavour: 'custom',
+              title: 'Custom 6-Pack Box',
+              subtitle: summary,
+              packSize: 'pack6',
+              unitPrice: PACK_PRICES.pack6,
+            }, 1);
+            clearTimeout(boxFeedbackTimer);
+            renderBoxBuilder('Box added to cart');
+            boxFeedbackTimer = setTimeout(function () {
+              renderBoxBuilder('');
+            }, 2200);
+          });
+
+          foot.appendChild(resetBtn);
+          if (feedbackText) {
+            var fb = document.createElement('span');
+            fb.className = 'inline-feedback';
+            fb.textContent = feedbackText;
+            foot.appendChild(fb);
+          }
+          foot.appendChild(addBoxBtn);
+
+          panel.appendChild(head);
+          panel.appendChild(rows);
+          panel.appendChild(foot);
+        }
+
+        function renderFaq() {
+          var list = document.getElementById('faqList');
+          list.innerHTML = '';
+          FAQ_ITEMS.forEach(function (item, idx) {
+            var wrap = document.createElement('div');
+            wrap.className = 'faq-item';
+
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'faq-btn';
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-controls', 'faq-ans-' + idx);
+
+            var span = document.createElement('span');
+            span.textContent = item.q;
+
+            var icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            icon.setAttribute('viewBox', '0 0 20 20');
+            icon.setAttribute('fill', 'none');
+            icon.setAttribute('stroke', 'currentColor');
+            icon.setAttribute('stroke-width', '1.8');
+            icon.setAttribute('class', 'faq-icon');
+            icon.setAttribute('aria-hidden', 'true');
+            var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', 'M10 4v12M4 10h12');
+            icon.appendChild(path);
+
+            btn.appendChild(span);
+            btn.appendChild(icon);
+
+            var ans = document.createElement('p');
+            ans.className = 'faq-answer';
+            ans.id = 'faq-ans-' + idx;
+            ans.hidden = true;
+            ans.textContent = item.a;
+
+            btn.addEventListener('click', function () {
+              var open = btn.getAttribute('aria-expanded') === 'true';
+              btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+              ans.hidden = open;
+            });
+
+            wrap.appendChild(btn);
+            wrap.appendChild(ans);
+            list.appendChild(wrap);
+          });
+        }
+
+        /* =========================================================
+           CART DRAWER & REGISTER MODAL
+           ========================================================= */
+        var overlayEl = document.getElementById('overlayBackdrop');
+        var cartDrawerEl = document.getElementById('cartDrawer');
+        var registerModalEl = document.getElementById('registerModal');
+
+        function closeOverlays() {
+          overlayEl.classList.remove('is-open');
+          overlayEl.setAttribute('aria-hidden', 'true');
+          cartDrawerEl.classList.remove('is-open');
+          cartDrawerEl.hidden = true;
+          registerModalEl.classList.remove('is-open');
+          registerModalEl.hidden = true;
+          isCheckingOut = false;
+        }
+
+        function openCartDrawer() {
+          closeOverlays();
+          renderCartDrawer();
+          overlayEl.classList.add('is-open');
+          overlayEl.setAttribute('aria-hidden', 'false');
+          cartDrawerEl.hidden = false;
+          requestAnimationFrame(function () {
+            cartDrawerEl.classList.add('is-open');
+          });
+        }
+
+        function openRegisterModal() {
+          closeOverlays();
+          renderRegisterModal();
+          overlayEl.classList.add('is-open');
+          overlayEl.setAttribute('aria-hidden', 'false');
+          registerModalEl.hidden = false;
+          requestAnimationFrame(function () {
+            registerModalEl.classList.add('is-open');
+          });
+        }
+
+        function renderCartDrawer() {
+          var body = document.getElementById('cartDrawerBody');
+          var foot = document.getElementById('cartDrawerFoot');
+          var totals = computeCartTotals();
+          body.innerHTML = '';
+          foot.innerHTML = '';
+
+          if (lastOrderReceipt) {
+            var receiptBox = document.createElement('div');
+            receiptBox.style.padding = '16px';
+            receiptBox.style.borderRadius = '14px';
+            receiptBox.style.background = '#eff6e6';
+
+            var rTitle = document.createElement('h3');
+            rTitle.style.margin = '0 0 8px';
+            rTitle.style.fontSize = '17px';
+            rTitle.textContent = 'Order ' + lastOrderReceipt.orderId + ' Confirmed';
+
+            var rBody = document.createElement('p');
+            rBody.style.margin = '0 0 10px';
+            rBody.style.fontSize = '14px';
+            rBody.style.color = '#3d4930';
+            rBody.textContent =
+              'Preparing chilled dispatch for ' +
+              lastOrderReceipt.name +
+              ' (' +
+              lastOrderReceipt.address +
+              ', ' +
+              lastOrderReceipt.postal +
+              ').';
+
+            var rTotal = document.createElement('p');
+            rTotal.className = 'tabular';
+            rTotal.style.margin = '0';
+            rTotal.style.fontSize = '14px';
+            rTotal.style.fontWeight = '600';
+            rTotal.textContent = 'Total paid: $' + lastOrderReceipt.total.toFixed(2);
+
+            receiptBox.appendChild(rTitle);
+            receiptBox.appendChild(rBody);
+            receiptBox.appendChild(rTotal);
+            body.appendChild(receiptBox);
+
+            var doneBtn = document.createElement('button');
+            doneBtn.type = 'button';
+            doneBtn.className = 'btn btn-primary';
+            doneBtn.style.width = '100%';
+            doneBtn.textContent = 'Continue browsing';
+            doneBtn.addEventListener('click', function () {
+              lastOrderReceipt = null;
+              closeOverlays();
+            });
+            foot.appendChild(doneBtn);
+            return;
+          }
+
+          if (cart.length === 0) {
+            var emptyText = document.createElement('p');
+            emptyText.style.margin = '4px 0 8px';
+            emptyText.style.fontSize = '14px';
+            emptyText.style.color = 'var(--ink-muted)';
+            emptyText.textContent = 'Your cart is empty. Start with a cold-pressed favourite:';
+            body.appendChild(emptyText);
+
+            FLAVOURS.forEach(function (f) {
+              var quick = document.createElement('button');
+              quick.type = 'button';
+              quick.className = 'btn btn-secondary';
+              quick.style.justifyContent = 'space-between';
+              quick.innerHTML =
+                '<span>' +
+                f.word +
+                ' 6-Pack</span><span class="tabular">$24.00</span>';
+              quick.addEventListener('click', function () {
+                addToCart({
+                  id: f.id + '-pack6',
+                  flavour: f.id,
+                  title: f.word + ' Tonic',
+                  subtitle: PACK_LABELS.pack6,
+                  packSize: 'pack6',
+                  unitPrice: PACK_PRICES.pack6,
+                }, 1);
+                renderCartDrawer();
+              });
+              body.appendChild(quick);
+            });
+            return;
+          }
+
+          var shipBar = document.createElement('div');
+          shipBar.className = 'shipping-bar tabular';
+          var pct = Math.min(100, Math.round((totals.subtotal / 35) * 100));
+          shipBar.innerHTML =
+            (totals.remaining === 0
+              ? 'Free chilled delivery unlocked.'
+              : 'Add $' + totals.remaining.toFixed(2) + ' more for free chilled delivery.') +
+            '<div class="shipping-track"><div class="shipping-fill" style="width:' +
+            pct +
+            '%"></div></div>';
+          body.appendChild(shipBar);
+
+          if (!isCheckingOut) {
+            cart.forEach(function (item) {
+              var row = document.createElement('div');
+              row.className = 'cart-item';
+
+              var info = document.createElement('div');
+              info.className = 'cart-item-info';
+              var title = document.createElement('div');
+              title.className = 'cart-item-title';
+              title.textContent = item.title;
+              var sub = document.createElement('div');
+              sub.className = 'cart-item-sub';
+              sub.textContent = item.subtitle;
+              info.appendChild(title);
+              info.appendChild(sub);
+
+              var right = document.createElement('div');
+              right.className = 'cart-item-right';
+
+              var price = document.createElement('div');
+              price.className = 'tabular';
+              price.style.fontSize = '14px';
+              price.style.fontWeight = '600';
+              price.textContent = '$' + (item.unitPrice * item.qty).toFixed(2);
+
+              var stepper = document.createElement('div');
+              stepper.className = 'stepper';
+              var minus = document.createElement('button');
+              minus.type = 'button';
+              minus.className = 'step-btn';
+              minus.textContent = '−';
+              minus.setAttribute('aria-label', 'Decrease quantity of ' + item.title);
+              minus.addEventListener('click', function () {
+                updateCartItemQty(item.id, -1);
+              });
+
+              var qtyEl = document.createElement('span');
+              qtyEl.className = 'step-count tabular';
+              qtyEl.textContent = String(item.qty);
+
+              var plus = document.createElement('button');
+              plus.type = 'button';
+              plus.className = 'step-btn';
+              plus.textContent = '+';
+              plus.setAttribute('aria-label', 'Increase quantity of ' + item.title);
+              plus.addEventListener('click', function () {
+                updateCartItemQty(item.id, 1);
+              });
+
+              stepper.appendChild(minus);
+              stepper.appendChild(qtyEl);
+              stepper.appendChild(plus);
+              right.appendChild(price);
+              right.appendChild(stepper);
+
+              row.appendChild(info);
+              row.appendChild(right);
+              body.appendChild(row);
+            });
+          } else {
+            var form = document.createElement('form');
+            form.id = 'checkoutForm';
+            form.noValidate = true;
+
+            var backBtn = document.createElement('button');
+            backBtn.type = 'button';
+            backBtn.className = 'text-link-btn';
+            backBtn.style.marginBottom = '12px';
+            backBtn.textContent = '← Back to items';
+            backBtn.addEventListener('click', function () {
+              isCheckingOut = false;
+              renderCartDrawer();
+            });
+            form.appendChild(backBtn);
+
+            form.insertAdjacentHTML(
+              'beforeend',
+              '<div class="form-field"><label for="coName">Full name</label><input id="coName" type="text" required /></div>' +
+                '<div class="form-field"><label for="coEmail">Email address</label><input id="coEmail" type="email" required /></div>' +
+                '<div class="form-field"><label for="coAddress">Street address</label><input id="coAddress" type="text" placeholder="120 Orchard Way" required /></div>' +
+                '<div class="form-field"><label for="coPostal">Postal code</label><input id="coPostal" type="text" placeholder="94107" required /></div>' +
+                '<p class="form-error" id="coError" hidden></p>'
+            );
+
+            body.appendChild(form);
+            if (member) {
+              document.getElementById('coName').value = member.name || '';
+              document.getElementById('coEmail').value = member.email || '';
+            }
+          }
+
+          foot.innerHTML =
+            '<div class="total-line"><span>Subtotal</span><span class="tabular">$' +
+            totals.subtotal.toFixed(2) +
+            '</span></div>' +
+            '<div class="total-line"><span>Chilled delivery</span><span class="tabular">' +
+            (totals.shipping === 0 ? 'Free' : '$' + totals.shipping.toFixed(2)) +
+            '</span></div>' +
+            '<div class="total-line is-grand"><span>Total</span><span class="tabular">$' +
+            totals.total.toFixed(2) +
+            '</span></div>';
+
+          var primaryBtn = document.createElement('button');
+          primaryBtn.type = 'button';
+          primaryBtn.className = 'btn btn-primary';
+          primaryBtn.style.width = '100%';
+          if (!isCheckingOut) {
+            primaryBtn.textContent = 'Proceed to checkout';
+            primaryBtn.addEventListener('click', function () {
+              isCheckingOut = true;
+              renderCartDrawer();
+            });
+          } else {
+            primaryBtn.textContent = 'Place chilled order';
+            primaryBtn.addEventListener('click', function () {
+              var nameVal = document.getElementById('coName').value.trim();
+              var emailVal = document.getElementById('coEmail').value.trim();
+              var addrVal = document.getElementById('coAddress').value.trim();
+              var postVal = document.getElementById('coPostal').value.trim();
+              var errEl = document.getElementById('coError');
+
+              var err = null;
+              if (!nameVal) err = 'Please enter your full name.';
+              else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) err = 'Please enter a valid email address.';
+              else if (addrVal.length < 5) err = 'Please enter a delivery street address.';
+              else if (postVal.length < 3) err = 'Please enter a valid postal code.';
+
+              if (err) {
+                errEl.textContent = err;
+                errEl.hidden = false;
+                return;
+              }
+
+              lastOrderReceipt = {
+                orderId: '#SR-' + (1000 + Math.floor(Math.random() * 8999)),
+                name: nameVal,
+                address: addrVal,
+                postal: postVal,
+                total: totals.total,
+              };
+              cart = [];
+              isCheckingOut = false;
+              saveJson('sora_cart_v1', cart);
+              updateHeaderBadges();
+              renderCartDrawer();
+            });
+          }
+          foot.appendChild(primaryBtn);
+        }
+
+        function renderRegisterModal() {
+          var body = document.getElementById('registerModalBody');
+          body.innerHTML = '';
+
+          if (member) {
+            var info = document.createElement('div');
+            var p1 = document.createElement('p');
+            p1.style.margin = '0 0 8px';
+            p1.style.fontSize = '15px';
+            p1.appendChild(document.createTextNode('Signed in as '));
+            var strong = document.createElement('strong');
+            strong.textContent = member.name;
+            p1.appendChild(strong);
+
+            var p2 = document.createElement('p');
+            p2.style.margin = '0 0 20px';
+            p2.style.fontSize = '13px';
+            p2.style.color = 'var(--ink-muted)';
+            p2.textContent = member.email + ' · Favourite flavour: ' + member.favourite;
+
+            info.appendChild(p1);
+            info.appendChild(p2);
+            var signOut = document.createElement('button');
+            signOut.type = 'button';
+            signOut.className = 'btn btn-secondary';
+            signOut.textContent = 'Sign out';
+            signOut.addEventListener('click', function () {
+              member = null;
+              saveJson('sora_member_v1', null);
+              updateHeaderBadges();
+              renderRegisterModal();
+            });
+            body.appendChild(info);
+            body.appendChild(signOut);
+            return;
+          }
+
+          var form = document.createElement('form');
+          form.noValidate = true;
+          form.innerHTML =
+            '<p style="margin:0 0 16px;font-size:14px;color:var(--ink-muted);">Save your delivery details and favourite tonic mix for faster checkout.</p>' +
+            '<div class="form-field"><label for="regName">Full name</label><input id="regName" type="text" placeholder="Maya Lin" required /></div>' +
+            '<div class="form-field"><label for="regEmail">Email address</label><input id="regEmail" type="email" placeholder="maya@example.com" required /></div>' +
+            '<div class="form-field"><label for="regFav">Favourite flavour</label><select id="regFav"><option value="Peach">Peach</option><option value="Yuzu">Yuzu</option><option value="Matcha">Matcha</option><option value="Grapefruit">Grapefruit</option></select></div>' +
+            '<div class="form-field"><label for="regPass">Password</label><input id="regPass" type="password" placeholder="At least 6 characters" required /></div>' +
+            '<p class="form-error" id="regError" hidden></p>' +
+            '<button type="submit" class="btn btn-primary" style="width:100%;">Create account</button>';
+
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var nameVal = document.getElementById('regName').value.trim();
+            var emailVal = document.getElementById('regEmail').value.trim();
+            var favVal = document.getElementById('regFav').value;
+            var passVal = document.getElementById('regPass').value;
+            var errEl = document.getElementById('regError');
+
+            var err = null;
+            if (!nameVal) err = 'Please enter your name.';
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) err = 'Please enter a valid email address.';
+            else if (passVal.length < 6) err = 'Password must be at least 6 characters.';
+
+            if (err) {
+              errEl.textContent = err;
+              errEl.hidden = false;
+              return;
+            }
+
+            member = { name: nameVal, email: emailVal, favourite: favVal };
+            saveJson('sora_member_v1', member);
+            updateHeaderBadges();
+            renderRegisterModal();
+          });
+
+          body.appendChild(form);
+        }
+
+        function updateStickyNav() {
+          var threshold = heroEl.offsetHeight * 0.78;
+          if (window.scrollY > threshold) {
+            stickyNavEl.classList.add('is-visible');
+          } else {
+            stickyNavEl.classList.remove('is-visible');
+          }
+        }
+
+        /* =========================================================
+           INIT & EVENT WIRING
+           ========================================================= */
+        buildSlides();
+        layout();
+        renderProductGrid();
+        renderSpotlight('');
+        renderBoxBuilder('');
+        renderFaq();
+        updateHeaderBadges();
+        updateStickyNav();
+
+        if (!reducedMotionQuery.matches) {
+          var initialFrameW = 1440 * currentU;
+          LAYER_KEYS.forEach(function (key) {
+            slideRefs[0].layers[key].style.transform =
+              'translateX(' + PARALLAX_FACTORS[key] * initialFrameW + 'px)';
+          });
+        } else {
+          finishOpeningImmediately();
+        }
+
+        setTimeout(function () {
+          layout();
+          finishOpeningImmediately();
+        }, 3000);
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(function () {
+            layout();
+            if (!openingDone) {
+              runOpeningSequence();
+            }
+          });
+        } else {
+          runOpeningSequence();
+        }
+
+        window.addEventListener('resize', layout);
+        window.addEventListener('scroll', updateStickyNav, { passive: true });
+
+        tabButtons.forEach(function (btn, idx) {
+          btn.addEventListener('click', function () {
+            recordInteraction();
+            if (idx === currentIndex) return;
+            var dir = idx > currentIndex ? 1 : -1;
+            goTo(idx, dir);
+          });
+        });
+
+        prevBtn.addEventListener('click', function () {
+          recordInteraction();
+          step(-1);
+        });
+
+        nextBtn.addEventListener('click', function () {
+          recordInteraction();
+          step(1);
+        });
+
+        window.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            closeOverlays();
+            return;
+          }
+          if (!cartDrawerEl.hidden || !registerModalEl.hidden) return;
+          if (document.activeElement && /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) return;
+          if (e.key === 'ArrowRight') {
+            recordInteraction();
+            step(1);
+          } else if (e.key === 'ArrowLeft') {
+            recordInteraction();
+            step(-1);
+          }
+        });
+
+        var pointerStart = null;
+        stage.addEventListener('pointerdown', function (e) {
+          if (e.pointerType === 'mouse' && e.button !== 0) return;
+          pointerStart = { x: e.clientX, y: e.clientY };
+        });
+
+        window.addEventListener('pointerup', function (e) {
+          if (!pointerStart) return;
+          var dx = e.clientX - pointerStart.x;
+          var dy = e.clientY - pointerStart.y;
+          pointerStart = null;
+          if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+            recordInteraction();
+            step(dx < 0 ? 1 : -1);
+          }
+        });
+
+        window.addEventListener('pointercancel', function () {
+          pointerStart = null;
+        });
+
+        shopNowEl.addEventListener('click', function (e) {
+          e.preventDefault();
+          recordInteraction();
+          selectedFlavourIdx = currentIndex;
+          renderProductGrid();
+          renderSpotlight('');
+          document.getElementById('shop').scrollIntoView({
+            behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+          });
+        });
+
+        logoEl.addEventListener('click', function (e) {
+          e.preventDefault();
+          recordInteraction();
+          window.scrollTo({ top: 0, behavior: reducedMotionQuery.matches ? 'auto' : 'smooth' });
+        });
+
+        cartLinkEl.addEventListener('click', function () {
+          recordInteraction();
+          openCartDrawer();
+        });
+
+        stickyCartBtn.addEventListener('click', openCartDrawer);
+        document.getElementById('footerCartBtn').addEventListener('click', openCartDrawer);
+
+        registerLinkEl.addEventListener('click', function () {
+          recordInteraction();
+          openRegisterModal();
+        });
+
+        document.getElementById('footerRegisterBtn').addEventListener('click', openRegisterModal);
+        document.getElementById('closeCartBtn').addEventListener('click', closeOverlays);
+        document.getElementById('closeRegisterBtn').addEventListener('click', closeOverlays);
+        overlayEl.addEventListener('click', closeOverlays);
+
+        Array.prototype.forEach.call(document.querySelectorAll('.footer-flavour-btn'), function (btn) {
+          btn.addEventListener('click', function () {
+            var idx = Number(btn.getAttribute('data-index'));
+            recordInteraction();
+            window.scrollTo({ top: 0, behavior: reducedMotionQuery.matches ? 'auto' : 'smooth' });
+            if (idx !== currentIndex) {
+              var dir = idx > currentIndex ? 1 : -1;
+              goTo(idx, dir);
+            }
+          });
+        });
+
+        document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+          e.preventDefault();
+          var emailInput = document.getElementById('newsletterEmail');
+          var msgEl = document.getElementById('newsletterMsg');
+          var val = emailInput.value.trim();
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+            msgEl.style.color = '#f2afc0';
+            msgEl.textContent = 'Please enter a valid email address.';
+            msgEl.hidden = false;
+            return;
+          }
+          msgEl.style.color = '#b4d58a';
+          msgEl.textContent = 'You are on the list for seasonal orchard drops.';
+          msgEl.hidden = false;
+          emailInput.value = '';
+        });
+
+        // Autoplay every 2600ms when hero is visible and no interaction in last 6s
+        setInterval(function () {
+          if (document.visibilityState !== 'visible') return;
+          if (window.scrollY > heroEl.offsetHeight * 0.6) return;
+          if (Date.now() - lastInteractionAt < 6000) return;
+          step(1);
+        }, 2600);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Blendy — Real fruit smoothies",
+  "description": "Single-screen smoothie flavour slider hero for Blendy featuring Berry, Kiwi, Banana, and Strawberry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
